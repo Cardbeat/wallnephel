@@ -56,5 +56,4 @@ SettingsStack.navigationOptions = {
 export default createMaterialTopTabNavigator({
   HomeStack,
   LinksStack,
-  SettingsStack,
 });
