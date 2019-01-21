@@ -10,3 +10,5 @@ export default class HomeScreen extends Component {
     );
   }
 }
+
+// need to design and organize, consider redux, maybe?
