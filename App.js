@@ -19,3 +19,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+// firebase redux app , understand how auth works and then go back to project
