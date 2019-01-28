@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 // import the different screens
-import { SwitchNavigator } from 'react-navigation'
+import { createSwitchNavigator, createAppContainer } from 'react-navigation';
 import Loading from './components/Loading'
 import SignUp from './components/SignUp'
 import Login from './components/Login'
@@ -9,11 +9,7 @@ import Main from './components/Main'
 
 export default class App extends React.Component {
   render() {
-    return (
-      <View style={styles.container}>
-        < switcher />
-      </View>
-    );
+    return < AppContainer />
   }
 }
 
@@ -27,7 +23,7 @@ const styles = StyleSheet.create({
 });
 
 // create our app's navigation stack
-const switcher = SwitchNavigator(
+const MyNavigator = createSwitchNavigator(
   {
     Loading,
     SignUp,
@@ -38,3 +34,5 @@ const switcher = SwitchNavigator(
     initialRouteName: 'Loading'
   }
 )
+
+const AppContainer = createAppContainer(MyNavigator)

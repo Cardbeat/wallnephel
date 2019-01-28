@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { View, Text, ActivityIndicator, StyleSheet } from 'react-native'
 
-export default class Loading extends React.Component {
+export default class Loading extends Component {
+
   render() {
     return (
       <View style={styles.container}>

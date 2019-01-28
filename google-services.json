@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1072967902894",
+    "firebase_url": "https://wallnephel.firebaseio.com",
+    "project_id": "wallnephel",
+    "storage_bucket": "wallnephel.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1072967902894:android:2dbd9ece9e79a4d9",
+        "android_client_info": {
+          "package_name": "com.wallnephel.wallnephel"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1072967902894-ge0paj1dtltnqe0j7p9b0nqb4snniuo2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHzh_ls2-4fMjn6K-yQ79kMh3Vnb-QYpA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
