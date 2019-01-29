@@ -21,6 +21,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+// need to revamp on the things that work with expo 
 
 // create our app's navigation stack
 const MyNavigator = createSwitchNavigator(
