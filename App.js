@@ -1,39 +1,128 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-// import the different screens
-import { createSwitchNavigator, createAppContainer } from 'react-navigation';
-import Loading from './components/Loading'
-import SignUp from './components/SignUp'
-import Login from './components/Login'
-import Main from './components/Main'
+import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
+import * as firebase from 'firebase';
+import { Input } from './components/Input';
+import { Button } from './components/Button';
 
 export default class App extends React.Component {
+  state = {
+    email: '',
+    password: '',
+    authenticating: false,
+    user: null,
+    error: '',
+  }
+
+  componentWillMount() {
+    const firebaseConfig = {
+      apiKey: 'AIzaSyCSUAdDt2DuZ8LITuYT2Y-nWYir-HF1Hpo',
+      authDomain: 'wallnephel-ws-5a2f6.firebaseapp.com',
+    }
+
+    firebase.initializeApp(firebaseConfig);
+  }
+
+  onPressSignIn() {
+    this.setState({
+      authenticating: true,
+    });
+
+    const { email, password } = this.state;
+
+    firebase.auth().signInWithEmailAndPassword(email, password)
+      .then(user => this.setState({
+        authenticating: false,
+        user,
+        error: '',
+      }))
+      .catch(() => {
+        // Login was not successful
+        firebase.auth().createUserWithEmailAndPassword(email, password)
+          .then(user => this.setState({
+            authenticating: false,
+            user,
+            error: '',
+          }))
+          .catch(() => this.setState({
+            authenticating: false,
+            user: null,
+            error: 'Authentication Failure',
+          }))
+      })
+  }
+
+  onPressLogOut() {
+    firebase.auth().signOut()
+      .then(() => {
+        this.setState({
+          email: '',
+          password: '',
+          authenticating: false,
+          user: null,
+        })
+      }, error => {
+        console.error('Sign Out Error', error);
+      });
+  }
+
+  renderCurrentState() {
+    if (this.state.authenticating) {
+      return (
+        <View style={styles.form}>
+          <ActivityIndicator size='large' />
+        </View>
+      )
+    }
+
+    if (this.state.user !== null) {
+      return (
+        <View style={styles.form}>
+          <Text>Logged In</Text>
+          <Button onPress={() => this.onPressLogOut()}>Log Out</Button>
+        </View>
+      )
+    }
+
+    return (
+      <View style={styles.form}>
+        <Input
+          placeholder='Enter your email...'
+          label='Email'
+          onChangeText={email => this.setState({ email })}
+          value={this.state.email}
+        />
+        <Input
+          placeholder='Enter your password...'
+          label='Password'
+          secureTextEntry
+          onChangeText={password => this.setState({ password })}
+          value={this.state.password}
+        />
+        <Button onPress={() => this.onPressSignIn()}>Log In</Button>
+        <Text>{this.state.error}</Text>
+      </View>
+    )
+
+  }
+
   render() {
-    return < AppContainer />
+    return (
+      <View style={styles.container}>
+        {this.renderCurrentState()}
+      </View>
+    );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    padding: 20,
     alignItems: 'center',
     justifyContent: 'center',
+    flexDirection: 'row'
   },
-});
-// need to revamp on the things that work with expo 
-
-// create our app's navigation stack
-const MyNavigator = createSwitchNavigator(
-  {
-    Loading,
-    SignUp,
-    Login,
-    Main
-  },
-  {
-    initialRouteName: 'Loading'
+  form: {
+    flex: 1
   }
-)
-
-const AppContainer = createAppContainer(MyNavigator)
+});
