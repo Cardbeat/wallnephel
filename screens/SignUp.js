@@ -25,6 +25,7 @@ export default class SignUp extends React.Component {
     const { email, password } = this.state;
 
     let db = firebase.firestore()
+    let createUser = false
     db.collection('users').get().then(item => {
       item.docs.map(doc => {
         if(doc.data().email === this.state.email) {
@@ -41,29 +42,17 @@ export default class SignUp extends React.Component {
             user: null,
             error: 'Authentication Failure',
           }))
-          db.collection('users').add({
-            email: this.state.email,
-            likes: []
-          })
+          createUser = true 
         }
       })
-    })
-  }
+      if (createUser) {
 
-  // tem algum timer repetindo a AJAX call provavelmente 3 vezes a cada click. [ zerar os timers e seguir em frente]
-
-  onPressLogOut() {
-    firebase.auth().signOut()
-      .then(() => {
-        this.setState({
-          email: '',
-          password: '',
-          authenticating: false,
-          user: null,
+        db.collection('users').add({
+          email: this.state.email,
+          likes: []
         })
-      }, error => {
-        console.error('Sign Out Error', error);
-      });
+      }
+    })
   }
 
   renderCurrentState() {

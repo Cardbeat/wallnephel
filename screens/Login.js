@@ -7,12 +7,15 @@ import Main from './Main'
 import SignUp from './SignUp'
 
 export default class Login extends React.Component {
-  state = {
-    email: '',
-    password: '',
-    authenticating: false,
-    user: null,
-    error: '',
+  constructor(props) {
+    super(props)
+    this.state = {
+      email: '',
+      password: '',
+      authenticating: false,
+      user: null,
+      error: '',
+    }
   }
 
   onPressLogIn() {
@@ -20,7 +23,8 @@ export default class Login extends React.Component {
       const { email, password } = this.state;
 
       firebase.auth().signInWithEmailAndPassword(email, password)
-      .then(user => this.setState({
+      .then(user => 
+        this.setState({
         authenticating: false,
         user,
         error: '',
@@ -63,7 +67,7 @@ export default class Login extends React.Component {
     }
 
     if (this.state.user !== null) {
-      return (< Main />)
+      return (< Main email={this.state.email} user={this.state.user} logout={this.onPressLogOut.bind(this)} />)
     }
 
     return (
