@@ -17,6 +17,10 @@ export default class Login extends React.Component {
       error: '',
     }
   }
+  static navigationOptions = {
+    header: null,
+    };
+
 
   onPressLogIn() {
 

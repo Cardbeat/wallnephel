@@ -1,6 +1,7 @@
 import React from 'react'
 import { StyleSheet, Platform, Image, Text, View, Button } from 'react-native'
 import firebase from '../Firebase'
+import Header from '../components/Header'
 
 export default class Main extends React.Component {
   state = { currentUser: null }
@@ -15,9 +16,7 @@ export default class Main extends React.Component {
 render() {
 return (
       <View style={styles.container}>
-        <Text>
-          Hi! 
-        </Text>
+        <Header />
         <Button onPress={this.props.logout } title="log out" />
       </View>
     )
