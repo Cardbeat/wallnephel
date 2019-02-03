@@ -10,7 +10,3 @@ export default class Header extends Component {
     }
 }
 
-
-// css to top 
-
-
