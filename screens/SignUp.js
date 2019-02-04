@@ -101,13 +101,7 @@ export default class SignUp extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    padding: 20,
-    alignItems: 'center',
-    justifyContent: 'center',
-    flexDirection: 'row'
   },
   form: {
-    flex: 1
   }
 });

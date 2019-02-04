@@ -5,6 +5,7 @@ import { Button } from '../components/Button';
 import * as firebase from 'firebase'
 import Main from './Main'
 import SignUp from './SignUp'
+import Header from '../components/Header'
 
 export default class Login extends React.Component {
   constructor(props) {
@@ -15,10 +16,11 @@ export default class Login extends React.Component {
       authenticating: false,
       user: null,
       error: '',
+      route: false
     }
   }
   static navigationOptions = {
-    header: null,
+     headerTitle: < Header />
     };
 
 

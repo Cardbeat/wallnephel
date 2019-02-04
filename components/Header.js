@@ -1,12 +1,22 @@
 import React,{ Component } from 'react'
-import {Text, Button} from 'react-native'
+import {View, Text, Button, StyleSheet} from 'react-native'
+import { Header } from 'react-native-elements'
 
 
-export default class Header extends Component {
+export default class HeaderTab extends Component {
     render() {
         return (
-            <Text>this is header</Text>
+            <View style={styles.header}>
+                <Text> header </Text>
+            </View>
+
         )
     }
 }
 
+
+const styles = StyleSheet.create({
+    header : {
+        
+    }
+})

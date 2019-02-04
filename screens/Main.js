@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Platform, Image, Text, View, Button } from 'react-native'
+import {StyleSheet, Platform, Image, Text, View, Button } from 'react-native'
 import firebase from '../Firebase'
 import Header from '../components/Header'
 import Profile from '../components/Profile'
@@ -37,7 +37,7 @@ render() {
   // this.props.logout
 return (
       <View style={styles.container}>
-        <Header />
+        < Header />
         {this.renderCurrentState()}
       </View>
     )
@@ -46,9 +46,7 @@ return (
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
+  
   }
 })
 
