@@ -20,3 +20,5 @@ const styles = StyleSheet.create({
         
     }
 })
+
+// using emulator now 
