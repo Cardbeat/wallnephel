@@ -14,11 +14,16 @@ export default class Main extends React.Component {
     }
   }
 
+  static navigationOptions = {
+    header: null,
+  };
+
 
   componentWillMount() {
     this.setState({
       currentUser: this.props.user
     })
+
   }
 
   renderCurrentState() {

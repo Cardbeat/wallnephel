@@ -16,7 +16,7 @@ const AppNavigator = createStackNavigator(
     Loading: Loading
   },
   {
-    initialRouteName: 'Login'
+    initialRouteName: 'Main'
   }
 )
 

@@ -16,7 +16,6 @@ export default class Dashboard extends Component {
 
 const styles = StyleSheet.create({
     dashboard: {
-        position: 'absolute',
-        top: 0
+
     }
 })
