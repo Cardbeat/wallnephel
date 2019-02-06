@@ -28,4 +28,4 @@ const styles = StyleSheet.create({
     }
 })
 
-// using emulator now 
+// need the dropdown 
