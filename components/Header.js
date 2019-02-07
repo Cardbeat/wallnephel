@@ -1,7 +1,7 @@
 import React,{ Component } from 'react'
 import {View, Text, StyleSheet} from 'react-native'
 import { Button, Header } from 'react-native-elements'
-import Menu from '../components/Menu'
+import MenuApp from './MenuApp'
 
 
 export default class HeaderTab extends Component {
@@ -9,7 +9,7 @@ export default class HeaderTab extends Component {
         return (
             <View style={styles.header}>
                 <Header
-                  rightComponent={< Menu />}
+                  rightComponent={< MenuApp profile={this.props.profile} />}
                   leftComponent={{ text: 'Wallnephel', style: { color: '#fff' } }}
                 />
             </View>

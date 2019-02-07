@@ -2,7 +2,7 @@ import React from 'react';
 import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
 import firebase from '../Firebase'
 import { Input } from '../components/Input';
-import { Button } from '../components/Button';
+import { ButtonLogs } from '../components/ButtonLogs';
 import Main from './Main'
 
 export default class SignUp extends React.Component {
@@ -83,7 +83,7 @@ export default class SignUp extends React.Component {
           onChangeText={password => this.setState({ password })}
           value={this.state.password}
         />
-        <Button onPress={() => this.onPressSignIn()}>Sign Up</Button>
+        <ButtonLogs onPress={() => this.onPressSignIn()}>Sign Up</ButtonLogs>
         <Text>{this.state.error}</Text>
       </View>
     )

@@ -1,7 +1,7 @@
 import React from 'react';
 import { ActivityIndicator, StyleSheet, Text, View, AsyncStorage } from 'react-native';
 import { Input } from '../components/Input';
-import { Button } from '../components/Button';
+import { ButtonLogs } from '../components/ButtonLogs';
 import * as firebase from 'firebase'
 import Main from './Main'
 import SignUp from './SignUp'
@@ -91,8 +91,8 @@ export default class Login extends React.Component {
           onChangeText={password => this.setState({ password })}
           value={this.state.password}
         />
-        <Button onPress={() => this.onPressLogIn()}>Log In</Button>
-        <Button onPress={() => this.props.navigation.navigate('SignUp')}>Sign Up</Button>
+        <ButtonLogs onPress={() => this.onPressLogIn()}>Log In</ButtonLogs>
+        <ButtonLogs onPress={() => this.props.navigation.navigate('SignUp')}>Sign Up</ButtonLogs>
         <Text>{this.state.error}</Text>
       </View>
     )

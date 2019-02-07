@@ -2,7 +2,7 @@ import React from 'react'
 import {StyleSheet, Platform, Image, Text, View, Button } from 'react-native'
 import firebase from '../Firebase'
 import Header from '../components/Header'
-import Profile from '../components/Profile'
+import Profile from './Profile'
 import Dashboard from '../components/Dashboard'
 
 export default class Main extends React.Component {
@@ -38,11 +38,15 @@ export default class Main extends React.Component {
     }
   }
 
+  getProfile() {
+    this.props.navigation.navigate('Profile')
+  }
+
 render() {
   // this.props.logout
 return (
       <View style={styles.container}>
-        < Header />
+        < Header profile={this.getProfile.bind(this)} />
         {this.renderCurrentState()}
       </View>
     )
