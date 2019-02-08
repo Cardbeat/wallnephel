@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import { StyleSheet, Text, View} from 'react-native'
 import firebase from '../Firebase'
+import Card from './Card'
 
 
 export default class Dashboard extends Component {
@@ -26,9 +27,14 @@ export default class Dashboard extends Component {
 
 
     render() {
+
+        let data = this.state.data
+        let cards = data.map((item, index)=> {
+            return < Card name={item.data.name} key={index} />
+        })
         return (
             <View style={styles.dashboard}>
-                <Text>this is dashboard</Text>
+                {cards}
             </View>
         )
     }
