@@ -10,3 +10,5 @@ export default class Card extends Component {
         )
     }
 }
+
+// deixar bonitinho usando flatList
