@@ -29,6 +29,7 @@ export default class Dashboard extends Component {
     render() {
 
         let data = this.state.data
+        const url = ''
         let cards = data.map((item, index)=> {
             return < Card 
             name={item.data.name} 
