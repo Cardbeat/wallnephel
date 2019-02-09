@@ -30,7 +30,12 @@ export default class Dashboard extends Component {
 
         let data = this.state.data
         let cards = data.map((item, index)=> {
-            return < Card name={item.data.name} key={index} />
+            return < Card 
+            name={item.data.name} 
+            categories={item.data.categories} 
+            image={item.data.image} 
+            key={index} 
+            />
         })
         return (
             <View style={styles.dashboard}>
