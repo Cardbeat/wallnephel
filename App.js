@@ -1,7 +1,4 @@
-import React from "react";
-import { View, Text } from "react-native";
 import { createStackNavigator, createAppContainer } from "react-navigation";
-import firebase from 'firebase'
 import Loading from './screens/Loading'
 import Main from './screens/Main'
 import Login from './screens/Login'

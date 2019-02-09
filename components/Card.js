@@ -3,7 +3,6 @@ import { ScrollView, Text, Image} from 'react-native'
 import firebase from '../Firebase'
 
 export default class Card extends Component {
-    // fazer baixar a imagem pelo nome do storage
     constructor(props) {
         super()
         this.state={
@@ -32,5 +31,3 @@ export default class Card extends Component {
         )
     }
 }
-
-// deixar bonitinho usando flatList
