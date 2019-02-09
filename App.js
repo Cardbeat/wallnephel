@@ -8,6 +8,7 @@ import Login from './screens/Login'
 import SignUp from './screens/SignUp'
 import Profile from './screens/Profile'
 
+console.disableYellowBox = true;
 
 const AppNavigator = createStackNavigator(
   {
