@@ -33,7 +33,9 @@ export default class Main extends React.Component {
       )
     } else {
       return (
-        < Dashboard />
+        <View style={styles.dashboard}>
+          < Dashboard />
+        </View>
       )
     }
   }
