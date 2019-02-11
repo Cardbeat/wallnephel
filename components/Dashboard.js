@@ -2,11 +2,6 @@ import React, {Component} from 'react'
 import { StyleSheet, Text,Dimensions, View, FlatList} from 'react-native'
 import firebase from '../Firebase'
 import Card from './Card'
-const {width} = Dimensions.get('window');
-
-const numberGrid = 3;
-
-const itemWidth = width / numberGrid;
 
 export default class Dashboard extends Component {
     constructor(props) {
@@ -31,26 +26,19 @@ export default class Dashboard extends Component {
 
 
     render() {
+        const cards = this.state.data.map( (item, index) => {
+            return (
+                <Card
+                                name={item.data.name}
+                                categories={item.data.categories}
+                                image={item.data.image}
+                                key={item.id}
+                            />
+            )
+        })
         return (
             <View style={styles.container}>
-                <FlatList 
-                data={this.state.data}
-                keyExtractor={item => item.id}
-                renderItem={ (item) => {
-                    console.log(item.item.data)
-                    return (
-                        <View style={styles.item}>
-                            <Card
-                                name={item.item.data.name}
-                                categories={item.item.data.categories}
-                                image={item.item.data.image}
-                                key={item.item.id}
-                                numColumns={2}
-                            />
-                        </View>
-                    )
-                }}
-            />
+                {cards}
             </View>
         )
     }
@@ -58,11 +46,8 @@ export default class Dashboard extends Component {
 
 
 const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-    },
-    itemImage:{
-      width: itemWidth,
-      height: itemWidth
+    container : {
+        flexDirection: 'row',
+        flexWrap: 'wrap',
     }
   });

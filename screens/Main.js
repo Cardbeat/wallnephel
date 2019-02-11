@@ -33,7 +33,7 @@ export default class Main extends React.Component {
       )
     } else {
       return (
-        <View style={styles.dashboard}>
+        <View >
           < Dashboard />
         </View>
       )
@@ -47,18 +47,12 @@ export default class Main extends React.Component {
 render() {
   // this.props.logout
 return (
-      <View style={styles.container}>
+      <View >
         < Header profile={this.getProfile.bind(this)} />
         {this.renderCurrentState()}
       </View>
     )
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-  
-  }
-})
 
 // acho que ja da pra iniciar o projeto , a partir do login , não acho que exista solução pros timeouts ,

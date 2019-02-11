@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { ScrollView, Text, Image} from 'react-native'
+import { View, Text, Image, Dimensions} from 'react-native'
 import firebase from '../Firebase'
 
 export default class Card extends Component {
@@ -21,13 +21,25 @@ export default class Card extends Component {
     render() {
 
         return (
-            <ScrollView>
-                <Image
+                <View style={styles.card}>
+                    <Image
                 source={{uri: this.state.url }}
-                style={{ height: 300, width: 200 }}
+                style={styles.imge}
                 />
-
-            </ScrollView>
+                </View>
         )
+    }
+}
+
+//
+
+const styles = {
+    image: {
+        width: (Dimensions.get('window').width / 2.04),
+        margin: 2,
+        height: 300
+    },
+    card: {
+        alignItems: 'center',
     }
 }
