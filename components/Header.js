@@ -10,7 +10,7 @@ export default class HeaderTab extends Component {
             <View style={styles.header}>
                 <Header
                   rightComponent={< MenuApp profile={this.props.profile} />}
-                  leftComponent={{ text: 'Wallnephel', style: { color: '#fff' } }}
+                  centerComponent={{ text: 'WALLNEPHEL', style: { color: '#fff' } }}
                 />
             </View>
         )

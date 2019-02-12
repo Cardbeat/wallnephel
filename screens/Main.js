@@ -34,7 +34,7 @@ export default class Main extends React.Component {
     } else {
       return (
         <View >
-          < Dashboard />
+          < Dashboard navigation={this.props.navigation}/>
         </View>
       )
     }

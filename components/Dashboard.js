@@ -33,11 +33,12 @@ export default class Dashboard extends Component {
                                 categories={item.data.categories}
                                 image={item.data.image}
                                 key={item.id}
+                                navigation={this.props.navigation}
                             />
             )
         })
         return (
-            <View style={styles.container}>
+            <View style={styles.container} >
                 {cards}
             </View>
         )

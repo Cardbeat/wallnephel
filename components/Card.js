@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import { View, Text, Image, Dimensions} from 'react-native'
+import { View, Text, Image, Dimensions, TouchableOpacity} from 'react-native'
 import firebase from '../Firebase'
+import { withNavigation } from 'react-navigation';
 
 export default class Card extends Component {
     constructor(props) {
@@ -19,14 +20,24 @@ export default class Card extends Component {
     }
 
     render() {
-
+        const info = {
+            name: this.props.name,
+            image: this.props.image,
+            categories: this.props.categories
+        }
         return (
-                <View style={styles.card}>
+                <TouchableOpacity onPress={() => this.props.navigation.navigate('CardInfo', {
+                    name: this.props.name,
+                    image: this.props.image,
+                    categories: this.props.categories
+                })}>
+                    <View style={styles.card} >
                     <Image
                 source={{uri: this.state.url }}
-                style={styles.imge}
+                style={styles.image}
                 />
                 </View>
+                </TouchableOpacity>
         )
     }
 }
@@ -36,8 +47,8 @@ export default class Card extends Component {
 const styles = {
     image: {
         width: (Dimensions.get('window').width / 2.04),
-        margin: 2,
-        height: 300
+        height: 300,
+        margin: 2
     },
     card: {
         alignItems: 'center',

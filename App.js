@@ -4,6 +4,7 @@ import Main from './screens/Main'
 import Login from './screens/Login'
 import SignUp from './screens/SignUp'
 import Profile from './screens/Profile'
+import CardInfo from './screens/CardInfo'
 
 console.disableYellowBox = true;
 
@@ -13,7 +14,8 @@ const AppNavigator = createStackNavigator(
     SignUp: SignUp,
     Login: Login,
     Loading: Loading,
-    Profile: Profile
+    Profile: Profile,
+    CardInfo: CardInfo
   },
   {
     initialRouteName: 'Main'
