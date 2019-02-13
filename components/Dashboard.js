@@ -46,6 +46,8 @@ export default class Dashboard extends Component {
 }
 
 
+// you need to learn how to change wallpaper through the wall button 
+
 const styles = StyleSheet.create({
     container : {
         flexDirection: 'row',
