@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
 import { View, Text, Image, Dimensions, TouchableOpacity} from 'react-native'
 import firebase from '../Firebase'
-import { withNavigation } from 'react-navigation';
-import { ButtonGroup , Button, Icon} from 'react-native-elements';
+import { withNavigation } from 'react-navigation'
+import { ButtonGroup , Button, Icon} from 'react-native-elements'
+import WallPaperManager from 'react-native-wallpaper-manager'
 
 export default class CardInfo extends Component {
     constructor(props) {
         super()
         this.state={
-            url: '',
-            selectedIndex: 2
+            url: ''
         }
         this.updateIndex = this.updateIndex.bind(this)
     }
@@ -31,11 +31,14 @@ export default class CardInfo extends Component {
             })
     }
 
+    setWall() {
+        WallPaperManager.setWallPaper({uri: this.state.url}, (res)=> console.log(res));
+    }
+
     render() {
-        const component1 = () => <Icon name='smartphone' />
+        const component1 = () => <Icon name='smartphone' onPress={this.setWall.bind(this)}/>
         const component2 = () => <Icon name='star' />
         const buttons = [{ element: component1 }, { element: component2 }]
-        const { selectedIndex } = this.state
         return (
                 <View style={styles.card} >
                     <Image
