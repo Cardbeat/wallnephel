@@ -3,9 +3,9 @@ import { View, Text, Image, Dimensions, TouchableOpacity} from 'react-native'
 import firebase from '../Firebase'
 import { withNavigation } from 'react-navigation'
 import { ButtonGroup , Button, Icon} from 'react-native-elements'
-import WallPaperManager from 'react-native-wallpaper-manager'
+import WallPaperManager from 'react-native-wallpaper-enhanced';
 
-export default class CardInfo extends Component {
+class CardInfo extends Component {
     constructor(props) {
         super()
         this.state={
@@ -32,7 +32,7 @@ export default class CardInfo extends Component {
     }
 
     setWall() {
-        WallPaperManager.setWallPaper({uri: this.state.url}, (res)=> console.log(res));
+        WallPaperManager.setWallPaper({uri: this.state.url});
     }
 
     render() {
@@ -71,3 +71,6 @@ const styles = {
         flex: 1
     }
 }
+
+
+export default CardInfo
