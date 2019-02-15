@@ -72,5 +72,6 @@ const styles = {
     }
 }
 
+// still need to change the wallpaper, coulnt make it work 
 
 export default CardInfo
