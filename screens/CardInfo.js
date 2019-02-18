@@ -73,6 +73,6 @@ const styles = {
 }
 
 // still need to change the wallpaper, coulnt make it work
-// eject expo pls
+// eject expo 
 
 export default CardInfo
