@@ -13,7 +13,7 @@
     "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz",
     "react-native-elements": "^1.0.0",
     "react-native-enhanced-popup-menu": "^0.6.1",
-    "react-native-wallpaper-enhanced": "^0.4.0",
+    "react-native-walle": "git+https://github.com/kaissaroj/react-native-wallpaper.git",
     "react-native-wallpaper-manager": "^0.3.16",
     "react-navigation": "^3.0.9"
   },

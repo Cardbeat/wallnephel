@@ -3,7 +3,7 @@ import { View, Text, Image, Dimensions, TouchableOpacity} from 'react-native'
 import firebase from '../Firebase'
 import { withNavigation } from 'react-navigation'
 import { ButtonGroup , Button, Icon} from 'react-native-elements'
-import WallPaperManager from 'react-native-wallpaper-enhanced';
+import RNWalle from "react-native-walle";
 
 class CardInfo extends Component {
     constructor(props) {
@@ -21,18 +21,18 @@ class CardInfo extends Component {
 
     componentWillMount() {
         const info = this.props.navigation.getParam('image')
-
-        console.log(info)
         let image = this.props.navigation.getParam('image')
             firebase.storage().ref().child(`images/${image}`).getDownloadURL().then( url => {
                 this.setState({
                     url: url
                 })
+                console.log(url)
             })
     }
 
     setWall() {
-        WallPaperManager.setWallPaper({uri: this.state.url});
+        
+
     }
 
     render() {
@@ -72,7 +72,5 @@ const styles = {
     }
 }
 
-// still need to change the wallpaper, coulnt make it work
-// eject expo 
 
 export default CardInfo
